@@ -1,0 +1,61 @@
+<% layout("/layout/boilerplate.ejs") %>
+<link href="/css/signup.css" rel="stylesheet" />
+<div class="row mt-3" id="main_div">
+  <div id="second_main" class="col-6 offset-2">
+    <h1 class="mb-4">Forget Password</h1>
+    <form
+      method="post"
+      action="/login/forget?_method=PUT"
+      novalidate
+      class="needs-validation"
+    >
+      <div class="mb-3">
+        <label class="form-label" for="email"><b>Email</b></label>
+        <input
+          class="form-control"
+          id="email"
+          name="email"
+          type="email"
+          required
+        />
+        <div class="invalid-feedback">Please enter valid email</div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="password"><b>New Password</b></label>
+        <input
+          class="form-control"
+          id="password"
+          name="Newpassword"
+          type="password"
+          required
+        />
+        <div class="invalid-feedback">Please enter valid password</div>
+      </div>
+      <div class="mb-3 col-5">
+        <input
+          style="display: none"
+          name="otp"
+          id="otpInput"
+          placeholder="Enter otp"
+          class="form-control"
+          required
+        />
+        <div class="invalid-feedback">Please enter valid otp</div>
+      </div>
+      <div class="row" id="btn-collection">
+        <div class="col-3">
+          <p style="display: none" id="tempory">Resend otp after 30 second</p>
+          <button type="button" id="otpGen" class="btn btn-outline-danger">
+            Generate otp
+          </button>
+        </div>
+        <div class="col-3 ms-5">
+          <button id="sub_signup" class="btn btn-outline-success">
+            submit
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

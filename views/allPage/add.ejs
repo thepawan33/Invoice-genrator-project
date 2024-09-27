@@ -1,0 +1,284 @@
+<link href="/css/main.css" rel="stylesheet" />
+<% layout("/layout/boilerplate.ejs") %>
+<div class="row mt-2" id="main_div">
+  <span class="cus_span">Create Invoice</span>
+  <div class="offset-1 col-9" id="second_main">
+    <form
+      action="/list"
+      method="post"
+      id="form-2145"
+      novalidate
+      class="needs-validation"
+    >
+      <div class="row">
+        <div class="mb-3 col-md-3">
+          <label for="form-label"><b> Customer name</b></label>
+          <input
+            class="form-control"
+            placeholder="Enter name"
+            value="<%= name %>"
+            name="cust_name"
+            required
+          />
+          <div class="invalid-feedback">Please enter valid customer name</div>
+        </div>
+        <div class="mb-3 col-md-3">
+          <label for="form-label"><b> Customer phone no</b></label>
+          <input
+            class="form-control"
+            placeholder="Enter number"
+            type="number"
+            value="<%= number %>"
+            name="cust_number"
+            required
+          />
+          <div class="invalid-feedback">Please enter valid No</div>
+        </div>
+        <div class="mb-3 col-md-4">
+          <label for="form-label"><b> Customer email</b></label>
+          <input
+            class="form-control"
+            type="email"
+            value="<%= email %>"
+            placeholder="Enter email"
+            name="cust_email"
+          />
+        </div>
+        <div class="mb-3 col-md-2">
+          <label for="form-label"><b> Customer id</b></label>
+          <input
+            class="form-control"
+            type="text"
+            value="<%= id %>"
+            placeholder="Enter id"
+          />
+          <div class="invalid-feedback">Please enter valid cust id</div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label"><b>Bill to</b></label>
+        <textarea
+          name="bill"
+          placeholder="enter address"
+          type="text"
+          class="form-control"
+          required
+        >
+<%= oth %></textarea
+        >
+        <div class="invalid-feedback">Please enter valid address</div>
+      </div>
+      <% if(currUser){ %>
+      <div class="row">
+        <div class="mb-3 col-md-3">
+          <input
+            class="form-control"
+            id="inp-21"
+            placeholder="Enter id"
+            name="id"
+          />
+        </div>
+        <div class="mb-3 col-md-2">
+          <button type="button" class="btn bg-primary" id="btn-2123">
+            Search Id
+          </button>
+        </div>
+      </div>
+      <hr />
+      <% } %>
+      <div class="row mt-4">
+        <div class="mb-3 col-md-4">
+          <label class="form-label"><b>Your name</b></label>
+          <input
+            name="y_name"
+            placeholder="Enter name"
+            class="form-control"
+            type="text"
+            value="<%= y_name %>"
+            required
+          />
+          <div class="invalid-feedback">Please enter valid name</div>
+        </div>
+        <div class="mb-3 col-md-3">
+          <label class="form-label"><b>Your phone no</b></label>
+          <input
+            name="y_number"
+            placeholder="Enter number"
+            class="form-control"
+            type="number"
+            value="<%= y_number %>"
+            required
+          />
+          <div class="invalid-feedback">Please enter valid No</div>
+        </div>
+        <div class="mb-3 col-md-4">
+          <label class="form-label"><b>Your email</b></label>
+          <input
+            name="y_email"
+            placeholder="Enter email"
+            class="form-control"
+            type="email"
+            value="<%= y_email %>"
+            required
+          />
+          <div class="invalid-feedback">Please enter valid email</div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label"><b>Your address</b></label>
+        <textarea
+          name="from"
+          placeholder="Enter address"
+          type="text"
+          class="form-control"
+          required
+        >
+<%= y_address %></textarea
+        >
+        <div class="invalid-feedback">Please enter valid address</div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="mb-3 col-md-3">
+          <label class="form-label"><b>Payment method</b></label>
+          <input
+            name="payment"
+            placeholder="upi/cash"
+            class="form-control"
+            type="text"
+            required
+          />
+          <div class="invalid-feedback">Please enter valid method</div>
+        </div>
+
+        <div class="mb-3 col-md-3">
+          <label class="form-label"><b>Note</b></label>
+          <input
+            name="note"
+            placeholder="somthing message"
+            class="form-control"
+            type="text"
+            required
+          />
+          <div class="invalid-feedback">Please enter valid note</div>
+        </div>
+        <div class="mb-3 col-md-3">
+          <label class="form-label"><b>Date</b></label>
+          <input
+            name="date"
+            placeholder="date"
+            class="form-control"
+            type="date"
+            required
+          />
+          <div class="invalid-feedback">Please enter valid date</div>
+        </div>
+
+        <div class="mb-3 col-md-3">
+          <label class="form-label"><b>Your Shop/Company Name</b></label>
+          <input
+            class="form-control inpt-img"
+            name="alt"
+            placeholder="Shop/Company"
+            required
+          />
+          <div class="invalid-feedback">Please enter name</div>
+        </div>
+        <div style="display: none" class="mb-3 col-md-3">
+          <input class="form-control inpt-img" name="logo" value="<%= url %>" />
+        </div>
+      </div>
+      <ol class="row mt-4 mb-9">
+        <li>
+          <div class="row mt-4">
+            <div class="mb-3 col-md-3">
+              <label class="form-label">Item name</label>
+              <input
+                name="it_name"
+                placeholder="item name"
+                class="form-control"
+                type="text"
+                required
+              />
+              <div class="invalid-feedback">Please enter item name</div>
+            </div>
+            <div class="mb-3 col-md-2">
+              <label class="form-label">Quantity</label>
+              <input
+                name="it_quantity"
+                placeholder="enter quantity"
+                class="form-control"
+                type="number"
+                required
+              />
+              <div class="invalid-feedback">Please enter valid Qty</div>
+            </div>
+            <div class="mb-3 col-md-2">
+              <label class="form-label">Unit</label>
+              <input
+                name="it_unit"
+                placeholder="pcs/pkt/kg"
+                class="form-control"
+                type="text"
+                required
+              />
+              <div class="invalid-feedback">Please enter vaild unit</div>
+            </div>
+
+            <div class="mb-3 col-md-2">
+              <label class="form-label">Rate</label>
+              <input
+                name="it_price"
+                placeholder=" enter rate"
+                class="form-control"
+                type="number"
+                required
+              />
+              <div class="invalid-feedback">Please enter vaild price</div>
+            </div>
+            <div class="mb-3 col-md-2">
+              <label class="form-label">Tax name</label>
+              <input
+                name="tax_name"
+                placeholder="Enter tax name"
+                class="form-control"
+                value="GST"
+                type="text"
+                required
+              />
+              <div class="invalid-feedback">Please enter tax name</div>
+            </div>
+            <div class="mb-3 col-md-2">
+              <label class="form-label">Tax %</label>
+              <input
+                name="tax_percent"
+                placeholder="enter 0%"
+                class="form-control"
+                type="number"
+                required
+              />
+              <div class="invalid-feedback">Please enter tax %</div>
+            </div>
+
+            <div class="col-auto">
+              <button class="btn btn-primary mb-3 mt-4 bg-danger del_btn">
+                delete
+              </button>
+            </div>
+          </div>
+        </li>
+      </ol>
+      <button type="button" class="btt-2 btn btn-outline-primary">
+        Add item</button
+      >&nbsp;
+      <button type="submit" class="btt-3 btn btn-outline-success">
+        submit
+      </button>
+    </form>
+  </div>
+  <div id="space_div"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="/index.js"></script>

@@ -1,0 +1,64 @@
+#main_div {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #212121;
+  width: 90%;
+  height: 100%;
+  margin-left: 35px;
+}
+#second_main {
+  width: 85%;
+  margin-left: 5rem;
+}
+#space_div {
+  height: 2.5rem;
+}
+.cus_span {
+  text-align: start;
+  position: sticky;
+  top: 3.5rem;
+  z-index: 1;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  background-color: rgba(0, 0, 0, 0.228);
+}
+.btt-2 {
+  margin-left: 2rem;
+}
+.btt-2:hover {
+  transform: scale(1.1);
+}
+.btt-3 {
+  margin-left: 40rem;
+}
+.btt-3:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 1250px) and (min-width: 760px) {
+  #main_div {
+    width: fit-content;
+    margin-left: 1rem;
+  }
+  #second_main {
+    width: 95%;
+    margin-left: 1rem;
+  }
+  .btt-3 {
+    margin-left: 30rem;
+  }
+}
+
+@media (max-width: 760px) {
+  #main_div {
+    margin-left: 0.5rem;
+    width: 95%;
+  }
+  #second_main {
+    margin-left: 0.2rem;
+    width: 95%;
+  }
+  .btt-3 {
+    margin-left: 5rem;
+  }
+}

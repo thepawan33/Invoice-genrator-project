@@ -1,0 +1,48 @@
+#main_div {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #212121;
+  height: 80vh;
+  width: 80%;
+  margin-left: 35px;
+}
+#second_main {
+  width: 80%;
+  margin-left: 6rem;
+}
+textarea {
+  margin-left: 0.7rem;
+}
+
+.cus_span {
+  height: fit-content;
+  text-align: center;
+  font-size: 1.5rem;
+  background-color: rgba(0, 0, 0, 0.228);
+}
+
+@media (min-width: 750px) and (max-width: 1000px) {
+  #main_div {
+    width: 100%;
+    margin-left: 2px;
+  }
+  #second_main {
+    margin-left: 2.5rem;
+  }
+}
+
+@media (max-width: 750px) {
+  #main_div {
+    height: 90vh;
+    width: 90%;
+    margin: 20px;
+  }
+  .cus_span {
+    height: 3rem;
+  }
+  #second_main {
+    padding-bottom: 6rem;
+    margin-left: 0.4rem;
+    width: 90%;
+  }
+}

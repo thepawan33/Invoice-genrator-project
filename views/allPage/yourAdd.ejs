@@ -1,0 +1,80 @@
+<link href="/css/yourAdd.css" rel="stylesheet" />
+
+<% layout("/layout/boilerplate.ejs") %>
+<div class="row mt-4" id="main_div">
+  <span class="cus_span">Add Your Address</span>
+  <div class="mb-3 offset-2 col-8" id="second_main">
+    <form
+      method="post"
+      action="/self"
+      novalidate
+      class="needs-validation"
+      enctype="multipart/form-data"
+    >
+      <div class="row">
+        <div class="mb-3 col-md-5">
+          <label class="form-label"><b>Add to your name</b></label>
+          <input
+            class="form-control"
+            placeholder="Enter name"
+            name="y_name"
+            required
+          />
+          <div class="invalid-feedback">Please enter vaild name</div>
+        </div>
+        <div class="mb-3 col-md-4 offset-md-2">
+          <label class="form-label"><b> Your number </b></label>
+          <input
+            class="form-control"
+            type="number"
+            placeholder="Enter number"
+            name="y_number"
+            required
+          />
+          <div class="invalid-feedback">Please enter vaild number</div>
+        </div>
+      </div>
+      <label class="form-label"><b>Add to your address</b></label>
+      <textarea
+        class="form-control"
+        placeholder="Enter address"
+        name="y_address"
+        required
+      ></textarea>
+      <div class="invalid-feedback">Please enter vaild address</div>
+      <div class="row">
+        <div class="mb-3 col-md-5 mt-4">
+          <label class="form-label"><b>Add to your email </b></label>
+          <input
+            type="email"
+            class="form-control"
+            placeholder="Enter email"
+            name="y_email"
+            required
+          />
+          <div class="invalid-feedback">Please enter valid email</div>
+        </div>
+        <div class="mb-3 col-md-4 mt-4 offset-md-2">
+          <label class="form-label"><b>Your logo</b></label>
+          <input
+            class="form-control inpt-img"
+            type="file"
+            name="logo"
+            accept=".png, .jpg, .jpeg"
+            required
+          />
+          <div class="invalid-feedback">Please add company logo</div>
+        </div>
+      </div>
+      <div>
+        <button
+          id="btn_submit"
+          class="btn btn-danger mt-4 offset-10"
+          type="submit"
+        >
+          submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

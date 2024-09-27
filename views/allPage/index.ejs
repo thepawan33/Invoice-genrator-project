@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>invoice</title>
+    <link rel="stylesheet" href="/css/invoice.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="nav-list">
+      <a href="/list">Home</a>
+      <button id="print-123">Print</button>
+    </nav>
+    <div class="container">
+      <div class="head">
+        <div class="logo">
+          <img src="<%= data1.logo %>" alt="logo" />
+        </div>
+        <div class="No"><span class="fallback-text"><%= data1.alt%></span></div>
+      </div>
+      <div class="main">
+        <div class="inv">
+          <h1>INOVICE</h1>
+        </div>
+        <div class="date">
+          <h2>
+            Date :
+            <span><%=data1.date%></span>
+          </h2>
+        </div>
+        <div class="bill-detail">
+          <div class="bill-to">
+            <h1>Billed to:</h1>
+            <spna><b><%= data1.cust_name %>,</b></spna
+            ><br />
+            <spna><b>Phone No:<%= data1.cust_number %>,</b></spna
+            ><br />
+            <spna><b><%= data1.cust_email %>,</b></spna
+            ><br />
+            <span><b>Address :</b> <%= data1.bill %> </span>
+          </div>
+          <div class="from">
+            <h1>From:</h1>
+            <spna><b><%= data1.y_name %>,</b></spna
+            ><br />
+            <spna><b>Phone No:<%= data1.y_number %>,</b></spna
+            ><br />
+            <spna><b><%= data1.y_email %>,</b></spna
+            ><br />
+            <span><b>Address :</b> <%= data1.from %> </span>
+          </div>
+        </div>
+        <br /><br />
+        <div class="tbl">
+          <table>
+            <thead>
+              <tr>
+                <th>S.No.</th>
+                <th>Item Name</th>
+                <th>Quantity</th>
+                <th>Unit</th>
+                <th>Rate</th>
+                <th>Amount</th>
+                <th>Tax(%)</th>
+                <th>Tax Value</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% let a=0 %> <% for (let i = 0; i < data1.it_name.length; i++) {
+              %>
+              <tr>
+                <td><b><%=i+1 %></b></td>
+                <td><%= data1.it_name[i] %></td>
+                <td><%= data1.it_quantity[i].toLocaleString("en-in") %></td>
+                <td><%= data1.it_unit[i] %></td>
+                <td>&#8377;<%= data1.it_price[i].toLocaleString("en-in") %></td>
+                <% amount=0%> <% taxValue=0%><% total=0%>
+                <td>
+                  &#8377; <%=
+                  (amount=data1.it_quantity[i]*data1.it_price[i]).toLocaleString("en-in")%>
+                </td>
+                <td><%=data1.tax_name[i]%>(<%=data1.tax_percent[i]%>%)</td>
+                <td>&#8377; <%=taxValue=amount*data1.tax_percent[i]/100%></td>
+                <td>&#8377; <%=total=amount+taxValue%></td>
+                <%a+=total %>
+              </tr>
+              <% } %>
+            </tbody>
+            <tfoot>
+              <tr class="tr-1">
+                <th colspan="8">Final total :</th>
+                <td><b>&#8377;<%= a.toLocaleString("en-in") %></b></td>
+              </tr>
+            </tfoot>
+          </table>
+          <div class="payment">
+            <h3>Payment method:</h3>
+            <p><%= data1.payment%></p>
+          </div>
+          <div class="payment">
+            <h3>Note:</h3>
+            <p><%= data1.note%></p>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="one"></div>
+        <div class="two"></div>
+      </div>
+    </div>
+  </body>
+  <script>
+    function printPage() {
+      const nav = document.querySelector(".nav-list");
+      nav.style = "display:none";
+      window.print();
+      location.reload(true);
+    }
+    let btn = document.querySelector("#print-123");
+    btn.addEventListener("click", () => {
+      printPage();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.ctrlKey && event.key === "p") {
+        event.preventDefault();
+        printPage();
+      }
+    });
+  </script>
+</html>

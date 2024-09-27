@@ -1,0 +1,58 @@
+body {
+  background-image: url("./images/weichao-deng-ivi0jMfm0Do-unsplash.jpg");
+  background-size: cover;
+  background-position-y: 30px;
+  color: white;
+}
+#main_div {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #212121;
+  height: 80vh;
+  width: 80%;
+  margin-left: 35px;
+}
+#second_main {
+  align-content: center;
+  margin-bottom: 2rem;
+  width: 70%;
+}
+@media (min-width: 760px) and (max-width: 1198px) {
+  #main_div {
+    width: 95%;
+  }
+  #second_main {
+    width: 80%;
+    margin-left: 2rem;
+  }
+}
+
+@media (max-width: 760px) {
+  #second_main {
+    width: 90%;
+    margin-left: 1rem;
+  }
+  #btn-collection {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  #otpGen {
+    width: 7.5rem;
+    margin-bottom: 1rem;
+  }
+  #sub_signup {
+    width: 8rem;
+    margin-top: 2rem;
+    margin-left: 6rem;
+  }
+}
+@media (max-width: 430px) {
+  #main_div {
+    margin-left: 0;
+    width: 100%;
+  }
+  #sub_signup {
+    margin-left: 1rem;
+  }
+}

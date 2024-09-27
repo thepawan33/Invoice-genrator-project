@@ -1,0 +1,71 @@
+<link href="/css/edit.css" rel="stylesheet" />
+<% layout("/layout/boilerplate.ejs") %>
+<div class="row mt-4" id="main_div">
+  <span id="edit_cus">Edit Customer</span>
+  <div class="mb-3 offset-2 col-8" id="second_main">
+    <form
+      method="post"
+      action="/customer/<%=data._id%>?_method=PUT"
+      novalidate
+      class="needs-validation"
+    >
+      <div class="row">
+        <div class="mb-3 col-md-5">
+          <label class="form-label"><b>Customer name</b></label>
+          <input
+            class="form-control"
+            value="<%= data.name %>"
+            name="name"
+            required
+          />
+          <div class="invalid-feedback">Please enter name</div>
+        </div>
+        <div class="mb-3 col-md-3">
+          <label class="form-label"><b> Customer number</b></label>
+          <input
+            class="form-control"
+            value="<%= data.number %>"
+            name="number"
+            type="number"
+            required
+          />
+          <div class="invalid-feedback">Please enter valid number</div>
+        </div>
+        <div class="mb-3 col-md-3">
+          <label class="form-label"><b> Custmer ID</b></label>
+          <input
+            class="form-control"
+            value="<%= data.id_data %>"
+            name="id_data"
+            required
+          />
+          <div class="invalid-feedback">Please enter vaild id</div>
+        </div>
+      </div>
+      <label class="form-label"><b>Customer address</b></label>
+      <textarea
+        class="form-control"
+        placeholder="Enter address"
+        name="address"
+        required
+      >
+<%= data.address %></textarea
+      >
+      <div class="invalid-feedback">Please enter address</div>
+    </br>
+      <div class="mb-3 col-md-3">
+        <label class="form-label"><b>Customer email (Optional)</b></label>
+        <input
+          class="form-control"
+          value="<%= data.email %>"
+          name="email"
+          type="email"
+        />
+      </div>
+      <button class="btn btn-danger" type="submit">Edit</button>
+    </form>
+    <form method="post" action="/customer/delete/<%=data._id %>?_method=DELETE">
+      <button type="submit" class="btn btn-outline-danger offset-9">Delete</button>
+    </form>
+  </div>
+</div>

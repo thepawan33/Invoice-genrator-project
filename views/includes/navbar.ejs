@@ -1,0 +1,91 @@
+<link href="/css/navbar.css" rel="stylesheet" />
+
+<nav
+  class="navbar navbar-expand-xl bg-body-light border-bottom sticky-top nav-bar"
+>
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/home"
+      ><i class="fa-regular fa-compass"></i
+    ></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      id="toggle_btn"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#offcanvasNavbar"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      class="offcanvas offcanvas-end text-bg-dark"
+      tabindex="-1"
+      id="offcanvasNavbar"
+      aria-labelledby="offcanvasNavbarLabel"
+    >
+      <div class="offcanvas-header bg-primary">
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+
+      <div class="offcanvas-body" id="navbarNavAltMarkup">
+        <div class="navbar-nav dropdown">
+          <a class="nav-link" href="/home">Home</a>
+          <a class="nav-link" href="/list">Create Invoice</a>
+
+          <div class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              data-bs-toggle="dropdown"
+              role="button"
+              >Customer</a
+            >
+            <div class="dropdown-menu bg-dark">
+              <a class="dropdown-item" href="/customer/add">
+                Add New Customer</a
+              >
+              <a class="dropdown-item" href="/customer/all"
+                >Show all Customer</a
+              >
+            </div>
+          </div>
+
+          <a class="nav-link" href="/self"> Your Address</a>
+          <a class="nav-link" href="/list/invoice">Show invoice</a>
+        </div>
+
+        <div class="navbar-nav ms-auto">
+          <form
+            class="d-flex"
+            role="search"
+            method="get"
+            action="/customer/search"
+          >
+            <input
+              class="form-control me-2 search-inp"
+              type="search"
+              placeholder="Search customer"
+              name="q"
+              aria-label="Search"
+            />
+            <button class="btn search-btn" type="submit">
+              <i class="fa-solid fa-magnifying-glass"></i>Search
+            </button>
+          </form>
+        </div>
+
+        <div class="navbar-nav offset-3" id="login-signup">
+          <% if(!currUser){ %>
+          <a class="nav-link signup" href="/signup">Sign up</a>
+          <a class="nav-link login" href="/Login">Log in</a>
+          <% }%> <% if(currUser) {%>
+          <a class="nav-link" href="/logout">Log out</a>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

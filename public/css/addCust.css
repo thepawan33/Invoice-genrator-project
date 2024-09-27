@@ -1,0 +1,32 @@
+#main_div {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #212121;
+  height: 80vh;
+  width: 80%;
+  margin-left: 35px;
+}
+#second_main {
+  /* align-content: center; */
+  width: 80%;
+  margin-left: 6rem;
+  margin-top: 0;
+}
+.cus_span {
+  height: fit-content;
+  text-align: center;
+  font-size: 1.5rem;
+  background-color: rgba(0, 0, 0, 0.228);
+}
+
+@media (max-width: 700px) {
+  #main_div {
+    height: 90vh;
+    width: 90%;
+    margin: 20px;
+  }
+  #second_main {
+    margin-left: 0.4rem;
+    width: 90%;
+  }
+}

@@ -1,0 +1,35 @@
+<% layout("/layout/boilerplate.ejs") %>
+<table class="table table-bordered border-primary table-hover">
+  <thead class="table-light">
+    <tr>
+      <th>Name</th>
+      <th>Number</th>
+      <th>Email</th>
+      <th>Cust_id</th>
+      <th>Addresse</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for( let d of data){ %>
+    <tr>
+      <td><%= d.name %></td>
+      <td><%= d.number %></td>
+      <td><%= d.email %></td>
+      <td><%= d.id_data %></td>
+      <td><%= d.address%></td>
+      <td>
+        <a href="/customer/edit/<%= d._id %>" class="btn bg-primary">Edit</a>
+      </td>
+      <td>
+        <form
+          method="post"
+          action="/customer/delete/<%= d._id %>?_method=DELETE"
+        >
+          <button class="btn bg-danger">delete</button>
+        </form>
+      </td>
+    </tr>
+
+    <% } %>
+  </tbody>
+</table>

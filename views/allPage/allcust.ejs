@@ -1,0 +1,42 @@
+<% layout("/layout/boilerplate.ejs") %>
+
+  <div class="table-responsive-md table-div">
+    <table class="table table-bordered border-primary table-hover caption-top">
+      <caption class="text-white">
+        <h2>All Customer Details</h2>
+      </caption>
+      <thead class="table-light">
+        <tr>
+          <th>Name</th>
+          <th>Number</th>
+          <th>Email</th>
+          <th>Cust_id</th>
+          <th>Addresse</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for( let d of data){ %>
+          <tr>
+            <td>
+              <%= d.name %></a>
+            </td>
+            <td>
+              <%= d.number %>
+            </td>
+            <td>
+              <%= d.email %>
+            </td>
+            <td>
+              <%= d.id_data %>
+            </td>
+            <td>
+              <%= d.address%>
+            </td>
+            <td>
+              <a href="/customer/edit/<%= d._id %>" class="btn bg-primary">Edit</a>
+            </td>
+          </tr>
+          <% } %>
+      </tbody>
+    </table>
+  </div>

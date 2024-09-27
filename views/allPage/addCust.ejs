@@ -1,0 +1,66 @@
+<link href="/css/addCust.css" rel="stylesheet" />
+<% layout("/layout/boilerplate.ejs") %>
+<div class="row mt-4" id="main_div">
+  <span class="cus_span">Add New Customer</span>
+  <div class="mb-3 offset-2 col-8" id="second_main">
+    <form method="post" action="/customer" novalidate class="needs-validation">
+      <div class="row">
+        <div class="mb-3 col-md-5">
+          <label class="form-label"><b>Add to customer name</b></label>
+          <input
+            class="form-control"
+            placeholder="Enter name"
+            name="name"
+            required
+          />
+          <div class="invalid-feedback">Please enter valid name</div>
+        </div>
+        <div class="mb-3 col-md-4">
+          <label class="form-label"><b> Customer number </b></label>
+          <input
+            class="form-control"
+            type="number"
+            placeholder="Enter number"
+            name="number"
+            required
+          />
+          <div class="invalid-feedback">Please enter vaild number</div>
+        </div>
+        <div class="mb-3 col-md-3">
+          <label class="form-label"><b>Customer ID</b></label>
+          <input
+            class="form-control"
+            placeholder="Enter id"
+            name="id_data"
+            type="text"
+            required
+          />
+          <div class="invalid-feedback">Please enter valid id</div>
+        </div>
+      </div>
+      <label class="form-label"><b>Add to customer address</b></label>
+      <textarea
+        class="form-control"
+        placeholder="Enter address"
+        name="address"
+        required
+      ></textarea>
+      <div class="invalid-feedback">Please enter vaild address</div>
+
+      <div class="mb-3 col-md-5 mt-4">
+        <label class="form-label"
+          ><b>Add to customer email (Optional)</b></label
+        >
+        <input
+          type="email"
+          class="form-control"
+          placeholder="Enter email"
+          name="email"
+        />
+      </div>
+
+      <br />
+      <button class="btn btn-danger offset-10" type="submit">submit</button>
+    </form>
+  </div>
+</div>

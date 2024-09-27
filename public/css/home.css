@@ -1,0 +1,81 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(
+      to bottom right,
+      rgba(0, 123, 255, 0.8),
+      rgba(0, 255, 255, 0.8)
+    ),
+    url("") no-repeat center center fixed; /* Add your image URL here */
+  background-size: cover;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+header {
+  margin-top: 10rem;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin: 0;
+}
+
+p {
+  font-size: 1.2em;
+}
+
+.button-container {
+  margin-top: 30px;
+}
+
+.generate-button {
+  background-color: #007bff;
+  color: white;
+  padding: 15px 30px;
+  font-size: 1.2em;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.generate-button:hover {
+  background-color: #0056b3;
+}
+
+.additional-info {
+  margin-top: 30px;
+}
+
+.link-button {
+  display: inline-block;
+  margin: 10px 15px; /* Spacing between the buttons */
+  background-color: #28a745; /* Green background for buttons */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.link-button:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+footer {
+  margin-top: auto;
+  padding: 10px;
+  font-size: 0.8em;
+  color: #777;
+}
