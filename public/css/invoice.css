@@ -90,6 +90,7 @@ nav button {
 }
 .bill-to {
   width: 50%;
+  padding-right: 0.8rem;
 }
 .from {
   width: 50%;
