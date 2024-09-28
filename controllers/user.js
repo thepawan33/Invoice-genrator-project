@@ -27,6 +27,8 @@ module.exports.otpGenrator = async (req, res) => {
       }
       console.log("Message sent:", info.messageId);
     });
+    console.log("hello");
+    res.send("dones");
   } catch (e) {
     req.flash("error", e.message);
     res.redirect("/signup");
