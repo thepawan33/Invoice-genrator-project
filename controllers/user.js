@@ -21,7 +21,12 @@ module.exports.otpGenrator = async (req, res) => {
       subject: "Your OTP Code for Verification",
       text: textMassage,
     };
-    await transporter.sendMail(sendInfo);
+    await transporter.sendMail(sendInfo, (error, info) => {
+      if (error) {
+        return console.log("Error occurred:", error);
+      }
+      console.log("Message sent:", info.messageId);
+    });
   } catch (e) {
     req.flash("error", e.message);
     res.redirect("/signup");
