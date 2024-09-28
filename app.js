@@ -30,7 +30,7 @@ main()
 async function main() {
   await mongoose.connect(mongo_url);
 }
-const old = "mongodb://127.0.0.1:27017/invoice";
+
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "/public")));
@@ -81,7 +81,7 @@ app.use("/self", selfsRoute);
 app.use("/", userRoute);
 
 app.get("*", (req, res, next) => {
-  next(new ExpressError(404, "Page Not Found!"));
+  res.redirect("/home");
 });
 
 app.use((err, req, res, next) => {
