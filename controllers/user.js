@@ -10,26 +10,26 @@ module.exports.signupForm = (req, res) => {
 module.exports.otpGenrator = async (req, res) => {
   try {
     let secret = generateSecret();
-    newSecret.length = 0;
+    let newSecret = []; // Ensure newSecret is defined
     newSecret.push(secret);
     let otp = generateOtp(secret);
-    const textMassage = `Your OTP is ${otp}. It’s valid for 3 Minute.
+
+    const textMassage = `Your OTP is ${otp}. It’s valid for 3 minutes.
        If you didn’t request this, please ignore this message.`;
+
     const sendInfo = {
-      from: `noreply@starkInvoice.com<${process.env.EMAIL}>`,
-      to: `${req.body.email}`,
+      from: `noreply@starkInvoice.com <${process.env.EMAIL}>`,
+      to: req.body.email,
       subject: "Your OTP Code for Verification",
       text: textMassage,
     };
-    await transporter.sendMail(sendInfo, (error, info) => {
-      if (error) {
-        return console.log("Error occurred:", error);
-      }
-      console.log("Message sent:", info.messageId);
-    });
-    console.log("hello");
-    res.send("dones");
+
+    await transporter.sendMail(sendInfo);
+
+    console.log("Message sent successfully.");
+    res.send("OTP sent successfully.");
   } catch (e) {
+    console.error("Error occurred:", e);
     req.flash("error", e.message);
     res.redirect("/signup");
   }
