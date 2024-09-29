@@ -7,11 +7,11 @@ const transporter = nodemailer.createTransport({
   secure: false,
   auth: {
     user: process.env.EMAIL,
-    pass: process.env.Password,
+    pass: process.env.PASSWORD,
   },
 });
 console.log("email :", process.env.EMAIL);
-console.log("email :", process.env.PASSWORd);
+console.log("pass :", process.env.PASSWORD);
 
 const generateSecret = () => {
   let secret = speakeasy.generateSecret({ length: 4 });
